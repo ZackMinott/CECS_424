@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
+
+struct Block
+{
+	int block_size; // # of bytes in the data section
+	int free;
+	struct Block *next_block; // in C, you have to use "struct Block" as the type
+};
+
+const int block_size = sizeof(struct Block);
+const int void_size = sizeof(void*);
+struct Block *free_head;
+
+void my_initialize_heap(int);
+void* my_alloc(int size);
+void my_free(void *data);
+
+void my_initialize_heap(int size)
+{
+	// use malloc to initialize a buffer of given size to use in Custom Allocator (ONLY TIME ALLOWED TO USE MALLOC IN THE WHOLE PROGRAM)
+	// free_head should point to the buffer
+	// initialize the header with appropriate values for block_size and next_block
+	free_head = malloc(size);
+	free_head->free = 1; // added this to flag each block as free or not
+	free_head->block_size = size - block_size;
+	free_head->next_block = NULL;
+}
+
+
+void* my_alloc(int size)
+{
+	struct Block *curr = free_head;
+
+	if (size <= 0)
+		return NULL;
+
+	// Rounded up size of the data being allocated 
+	int roundedUpSize = size + block_size;
+
+	if ((roundedUpSize % void_size) != 0)
+		roundedUpSize += void_size - (roundedUpSize % void_size);
+
+	// Use First Fit Heuristic to find the first free block that fits 
+	while((curr->block_size < size || curr->free == 0) && curr->next_block != NULL)
+	{
+		curr = curr->next_block;
+	}
+
+	int excessSpace = curr->block_size - roundedUpSize;
+
+	if (curr->block_size == size)
+	{
+		// can't split
+		curr->free = 0;
+
+		return (void*)(++curr);
+	}
+	else if (curr->block_size > roundedUpSize)
+	{
+		// splitting the blocks 
+		struct Block* new_block = (void*)((char*)(curr) + roundedUpSize);
+		new_block->block_size = excessSpace;
+		new_block->free = 1;
+		new_block->next_block = curr->next_block;
+
+		// sets the block in the free list
+		curr->block_size = size;
+		curr->free = 0;
+		curr->next_block = new_block;
+
+		return (void*)(++curr);
+	}
+	else
+	{
+		// if insufficient amount of memory return null
+		return NULL;
+	}
+
+}
+
+
+void my_free(void *data)
+{
+	// set the data block as free
+	struct Block* temp = (struct Block*) data - 1;
+	temp->free = 1;
+
+	// merge the blocks in the memory to remove the data block 
+	struct Block *curr;
+	curr = free_head;
+	while (curr && curr->next_block) {
+		if (curr->free && curr->next_block->free) {
+			curr->block_size += (curr->next_block->block_size) + block_size;
+			curr->next_block = curr->next_block->next_block;
+		}
+		curr = curr->next_block;
+	}
+}

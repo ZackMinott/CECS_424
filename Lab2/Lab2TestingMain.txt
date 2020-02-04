@@ -1,0 +1,77 @@
+TESTING MAIN
+
+void Test1()
+{
+	// Test 1
+	int *test1_a = my_alloc(sizeof(int));
+	printf("%p\n", test1_a);
+	my_free(test1_a);
+	int *test1_b = my_alloc(sizeof(int));
+	printf("%p\n", test1_b);
+	my_free(test1_b);
+}
+
+void Test2()
+{
+	// Test 2
+	int *test2_a = my_alloc(sizeof(int));
+	printf("%p\n", test2_a);
+	int *test2_b = my_alloc(sizeof(int));
+	printf("%p\n", test2_b);
+}
+
+void Test3()
+{
+	//Test 3
+	int *test3_a = my_alloc(sizeof(int));
+	int *test3_b = my_alloc(sizeof(int));
+	int *test3_c = my_alloc(sizeof(int));
+	printf("%p\n", test3_a);
+	printf("%p\n", test3_b);
+	printf("%p\n", test3_c);
+	my_free(test3_b);
+	int *test3_d = my_alloc(2 * sizeof(double));
+	printf("%p\n", test3_d);
+	int *test3_f = my_alloc(sizeof(int));
+	printf("%p\n", test3_f);
+}
+
+void Test4()
+{
+	//Test4
+	int *test4_a = my_alloc(sizeof(char));
+	int *test4_b = my_alloc(sizeof(int));
+	printf("%p\n", test4_a);
+	printf("%p\n", test4_b);
+}
+
+void Test5()
+{
+	//Test 5
+	int *test5_a = my_alloc(80 * sizeof(int));
+	int *test5_b = my_alloc(sizeof(int));
+	printf("%p\n", test5_a);
+	printf("%p\n", test5_b);
+	my_free(test5_a);
+	printf("%p\n", test5_b);
+	
+
+	
+}
+
+int main()
+{
+	printf("The size of struct block : %d\n", block_size);
+	printf("The size of void pointer : %d\n", void_size);
+
+	my_initialize_heap(1000);
+
+	//Test1();
+	//Test2();
+	//Test3();
+	//Test4();
+	//Test5();	
+
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,10 @@
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\bin\Debug\netcoreapp2.1\Lab3_RailwayProgramming.deps.json
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\bin\Debug\netcoreapp2.1\Lab3_RailwayProgramming.runtimeconfig.json
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\bin\Debug\netcoreapp2.1\Lab3_RailwayProgramming.runtimeconfig.dev.json
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\bin\Debug\netcoreapp2.1\Lab3_RailwayProgramming.dll
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\bin\Debug\netcoreapp2.1\Lab3_RailwayProgramming.pdb
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\obj\Debug\netcoreapp2.1\Lab3_RailwayProgramming.fsprojAssemblyReference.cache
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\obj\Debug\netcoreapp2.1\Lab3_RailwayProgramming.AssemblyInfoInputs.cache
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\obj\Debug\netcoreapp2.1\Lab3_RailwayProgramming.AssemblyInfo.fs
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\obj\Debug\netcoreapp2.1\Lab3_RailwayProgramming.dll
+D:\School\CECS 424\Projects\Lab3_RailwayProgramming\Lab3_RailwayProgramming\obj\Debug\netcoreapp2.1\Lab3_RailwayProgramming.pdb
